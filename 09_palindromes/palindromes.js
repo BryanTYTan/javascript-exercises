@@ -1,16 +1,8 @@
 const palindromes = function (text) {
-    let first_letter = text[0];
-    let last_letter = text.slice(-1);
-
-    if (text == "" || text.length == 1) {
-        return true;
-    }
-    else if (first_letter == last_letter) {
-        return palindromes(text.substring(1, text.length-1));
-    }
-    else {
-        return false;
-    }
+    // Remove all non alphanumeric charcter and make it lower case
+    text = text.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
+    // Compare original text with a reversed text
+    return text == text.split('').reverse().join('');
 };
 
 // Do not edit below this line
